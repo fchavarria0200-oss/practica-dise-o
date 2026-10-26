@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS HARDWARE | Cyberpunk PC Gaming & Components</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Orbitron & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            bg: '#070913',
+                            card: 'rgba(15, 20, 38, 0.75)',
+                            border: 'rgba(0, 240, 255, 0.2)',
+                            cyan: '#00f0ff',
+                            purple: '#7000ff',
+                            pink: '#ff007f',
+                            neonGreen: '#00ff66',
+                            amber: '#ffaa00'
+                        }
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 0 15px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.2)',
+                        'neon-purple': '0 0 15px rgba(112, 0, 255, 0.4), inset 0 0 10px rgba(112, 0, 255, 0.2)',
+                        'neon-green': '0 0 15px rgba(0, 255, 102, 0.4)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos personalizados Cyberpunk & Scrollbar */
+        body {
+            background-color: #070913;
+            color: #e2e8f0;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(112, 0, 255, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 85% 75%, rgba(0, 240, 255, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        .cyber-glass {
+            background: rgba(13, 17, 33, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 240, 255, 0.18);
+        }
+
+        .cyber-glass-hover:hover {
+            border-color: rgba(0, 240, 255, 0.6);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+        }
+
+        .cyber-btn-primary {
+            background: linear-gradient(135deg, #7000ff 0%, #00f0ff 100%);
+            transition: all 0.3s ease;
+        }
+
+        .cyber-btn-primary:hover {
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+            filter: brightness(1.1);
+        }
+
+        .text-glow-cyan {
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.7);
+        }
+
+        .text-glow-purple {
+            text-shadow: 0 0 8px rgba(112, 0, 255, 0.7);
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Custom Scrollbar general */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070913;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f0ff;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.3; }
+        }
+        .glow-pulse {
+            animation: pulseGlow 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col justify-between antialiased selection:bg-cyber-cyan selection:text-black">
+
+    <!-- TOP HEADER / BARRA SUPERIOR DE TIENDA Y CONTACTO -->
+    <header class="sticky top-0 z-40 bg-cyber-bg/90 backdrop-blur-md border-b border-cyber-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
+                
+                <!-- Logo & Estado -->
+                <div class="flex items-center justify-between w-full lg:w-auto gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyber-purple to-cyber-cyan p-0.5 flex items-center justify-center shadow-neon-cyan">
+                            <div class="w-full h-full bg-cyber-bg rounded-[10px] flex items-center justify-center">
+                                <i class="fa-solid fa-microchip text-cyber-cyan text-xl"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h1 class="font-orbitron font-black text-xl sm:text-2xl tracking-wider text-white flex items-center gap-2">
+                                NEXUS<span class="text-cyber-cyan text-glow-cyan">HARDWARE</span>
+                            </h1>
+                            <p class="text-[10px] uppercase tracking-widest text-slate-400 font-semibold">Ultimate Gaming Equipment</p>
+                        </div>
+                    </div>
+
+                    <!-- Estado Interactiva (Mobile & Desktop) -->
+                    <div id="statusBtn" onclick="toggleStoreStatus()" class="cursor-pointer flex items-center gap-2 px-3 py-1 rounded-full bg-cyber-neonGreen/10 border border-cyber-neonGreen/30 text-cyber-neonGreen text-xs font-semibold hover:bg-cyber-neonGreen/20 transition-all select-none">
+                        <span id="statusDot" class="w-2 h-2 rounded-full bg-cyber-neonGreen animate-ping"></span>
+                        <span id="statusText" class="font-orbitron text-[11px] tracking-wide">EN LÍNEA / ATENCIÓN FÍSICA</span>
+                    </div>
+                </div>
+
+                <!-- Buscador en Tiempo Real & Acciones -->
+                <div class="flex items-center gap-3 w-full lg:w-auto">
+                    <!-- Buscador -->
+                    <div class="relative flex-grow lg:w-80">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500"></i>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            oninput="filterCatalog()"
+                            placeholder="Buscar RTX 4080, Ryzen, DDR5..." 
+                            class="w-full pl-10 pr-4 py-2 bg-slate-900/80 border border-slate-700/80 rounded-xl text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyber-cyan focus:ring-1 focus:ring-cyber-cyan transition-all"
+                        >
+                    </div>
+
+                    <!-- Botón PC Builder Anchor -->
+                    <a href="#builder" class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-cyber-purple/40 text-cyber-cyan text-xs font-semibold transition-all hover:shadow-neon-purple">
+                        <i class="fa-solid fa-sliders text-cyber-purple"></i>
+                        <span>PC Builder</span>
+                    </a>
+
+                    <!-- Carrito Sidebar Trigger -->
+                    <button onclick="toggleCartDrawer()" class="relative bg-gradient-to-r from-cyber-purple/30 to-cyber-cyan/30 hover:from-cyber-purple hover:to-cyber-cyan border border-cyber-cyan/50 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 group shadow-neon-cyan">
+                        <i class="fa-solid fa-cart-shopping text-cyber-cyan group-hover:text-white transition-colors"></i>
+                        <span class="hidden sm:inline font-orbitron">CARRITO</span>
+                        <span id="cartCountBadge" class="bg-cyber-pink text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center font-mono shadow-sm">0</span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO PROMO BANNER -->
+    <section class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+        <div class="cyber-glass rounded-3xl p-6 sm:p-10 relative overflow-hidden border border-cyber-border">
+            <!-- Glow FX Background -->
+            <div class="absolute -right-10 -top-10 w-64 h-64 bg-cyber-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -left-10 -bottom-10 w-64 h-64 bg-cyber-purple/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 max-w-2xl">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyber-purple/20 border border-cyber-purple/40 text-cyber-cyan text-xs font-orbitron font-bold tracking-widest mb-4">
+                    <i class="fa-solid fa-bolt text-cyber-pink"></i> NEXT-GEN HARDWARE 2026
+                </span>
+                <h2 class="font-orbitron font-black text-2xl sm:text-4xl text-white tracking-wide leading-tight mb-3">
+                    POTENCIA SIN LÍMITES PARA TU <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-cyan via-teal-300 to-cyber-pink">BATTUESTATION</span>
+                </h2>
+                <p class="text-slate-300 text-xs sm:text-sm mb-6 leading-relaxed">
+                    Componentes gaming certificados de alto rendimiento. Envíos express asegurados, garantía directa de fábrica y asesoría técnica especializada.
+                </p>
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#catalog" class="cyber-btn-primary text-black font-orbitron font-extrabold text-xs sm:text-sm px-6 py-3 rounded-xl tracking-wider uppercase flex items-center gap-2">
+                        Ver Catálogo <i class="fa-solid fa-arrow-down-long"></i>
+                    </a>
+                    <a href="#builder" class="bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700 font-orbitron text-xs sm:text-sm px-5 py-3 rounded-xl transition-all">
+                        Simulador de Armado
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGORÍAS & FILTROS POR MARCA -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+        
+        <!-- Categorías scrollable -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-3 hide-scrollbar" id="categoryContainer">
+            <!-- Renderizado dinámico -->
+        </div>
+
+        <!-- Barra de marcas secundarias -->
+        <div class="flex items-center justify-between flex-wrap gap-3 mt-4 pt-4 border-t border-slate-800/80 text-xs">
+            <span class="text-slate-400 font-orbitron text-[11px] flex items-center gap-1.5">
+                <i class="fa-solid fa-filter text-cyber-cyan"></i> Marcas:
+            </span>
+            <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar" id="brandFilterContainer">
+                <!-- Renderizado por JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT: CATÁLOGO DE PRODUCTOS -->
+    <main id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="font-orbitron font-bold text-lg text-white flex items-center gap-2">
+                <i class="fa-solid fa-layer-group text-cyber-cyan"></i>
+                <span id="catalogTitle">TODOS LOS COMPONENTES</span>
+            </h3>
+            <span id="resultsCount" class="text-xs text-slate-400 font-mono">Cargando catálogo...</span>
+        </div>
+
+        <!-- Grid de productos -->
+        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <!-- Carga dinámica vía JS -->
+        </div>
+
+        <!-- Sin Resultados -->
+        <div id="noResults" class="hidden text-center py-20 cyber-glass rounded-2xl border border-slate-800">
+            <i class="fa-solid fa-ban text-5xl text-cyber-pink mb-4"></i>
+            <h4 class="font-orbitron text-lg font-bold text-white">Sin coincidencias</h4>
+            <p class="text-slate-400 text-xs mt-1">Intenta con otros términos o limpia los filtros seleccionados.</p>
+            <button onclick="resetFilters()" class="mt-4 px-4 py-2 bg-slate-800 text-cyber-cyan text-xs font-orbitron rounded-xl border border-cyber-cyan/30 hover:bg-slate-700">
+                Restablecer Filtros
+            </button>
+        </div>
+    </main>
+
+    <!-- CALCULADOR / SIMULADOR "PC BUILDER EXPRESS" -->
+    <section id="builder" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 my-8">
+        <div class="cyber-glass rounded-3xl p-6 sm:p-8 border border-cyber-purple/40 relative">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6 border-b border-slate-800 pb-4">
+                <div>
+                    <span class="text-cyber-cyan font-orbitron text-xs font-bold tracking-widest uppercase">Herramienta Interactiva</span>
+                    <h3 class="font-orbitron font-extrabold text-2xl text-white flex items-center gap-2 mt-1">
+                        <i class="fa-solid fa-calculator text-cyber-purple"></i> PC Builder Express & Compatibility
+                    </h3>
+                    <p class="text-xs text-slate-400 mt-0.5">Selecciona tu configuración base y calcularemos automáticamente el consumo en watts y costo total estimado.</p>
+                </div>
+                <div class="bg-slate-900/90 px-4 py-2 rounded-2xl border border-cyber-cyan/30 flex items-center gap-3">
+                    <i class="fa-solid fa-bolt text-cyber-amber text-xl"></i>
+                    <div>
+                        <span class="text-[10px] text-slate-400 uppercase font-orbitron block">Consumo Estimado</span>
+                        <span id="builderWattage" class="font-mono text-base font-bold text-cyber-amber">0 Watts</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Selector CPU -->
+                <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+                    <label class="block font-orbitron text-xs font-bold text-cyber-cyan mb-2">
+                        <i class="fa-solid fa-microchip mr-1"></i> Procesador (CPU)
+                    </label>
+                    <select id="builderCpu" onchange="calculateBuilder()" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-xs text-slate-200 focus:border-cyber-cyan focus:outline-none">
+                        <option value="">-- Seleccionar Procesador --</option>
+                    </select>
+                </div>
+
+                <!-- Selector GPU -->
+                <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+                    <label class="block font-orbitron text-xs font-bold text-cyber-purple mb-2">
+                        <i class="fa-solid fa-tv mr-1"></i> Tarjeta de Vídeo (GPU)
+                    </label>
+                    <select id="builderGpu" onchange="calculateBuilder()" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-xs text-slate-200 focus:border-cyber-purple focus:outline-none">
+                        <option value="">-- Seleccionar Tarjeta Gráfica --</option>
+                    </select>
+                </div>
+
+                <!-- Selector RAM -->
+                <div class="bg-slate-900/60 p-4 rounded-2xl border border-slate-800">
+                    <label class="block font-orbitron text-xs font-bold text-cyber-neonGreen mb-2">
+                        <i class="fa-solid fa-memory mr-1"></i> Memoria RAM
+                    </label>
+                    <select id="builderRam" onchange="calculateBuilder()" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-2.5 text-xs text-slate-200 focus:border-cyber-neonGreen focus:outline-none">
+                        <option value="">-- Seleccionar RAM --</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Panel de Resultados del Builder -->
+            <div class="mt-6 pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-950/80 p-4 rounded-2xl">
+                <div>
+                    <p class="text-xs text-slate-400">Fuente de Poder Recomendada: <span id="recommendedPsu" class="font-bold text-white font-mono">--</span></p>
+                    <p class="text-xs text-slate-400 mt-1">Costo Total de Componentes: <span id="builderTotalPrice" class="font-orbitron font-bold text-cyber-cyan text-lg">$0.00</span></p>
+                </div>
+                <button onclick="addBuilderToCart()" class="w-full sm:w-auto cyber-btn-primary text-black font-orbitron text-xs font-bold px-6 py-3 rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-cart-plus"></i> Añadir Combo al Carrito
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DE ESPECIFICACIONES TÉCNICAS (DETALLES) -->
+    <div id="productModal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="cyber-glass rounded-3xl max-w-2xl w-full overflow-hidden border border-cyber-cyan/40 shadow-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] flex flex-col" id="modalContainer">
+            
+            <!-- Header Modal -->
+            <div class="p-4 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span id="modalBrandBadge" class="px-2.5 py-0.5 rounded-md bg-cyber-purple/20 text-cyber-cyan font-orbitron text-[10px] font-bold">BRAND</span>
+                    <span id="modalCategoryBadge" class="text-xs text-slate-400 uppercase font-mono">Category</span>
+                </div>
+                <button onclick="closeProductModal()" class="text-slate-400 hover:text-white text-lg p-1">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Body Modal -->
+            <div class="p-6 overflow-y-auto space-y-6">
+                <div class="flex flex-col sm:flex-row gap-6 items-center">
+                    <div id="modalSvgContainer" class="w-full sm:w-48 h-48 bg-slate-900/90 rounded-2xl border border-slate-800 flex items-center justify-center p-4">
+                        <!-- SVG / Icon Placeholder -->
+                    </div>
+                    <div class="flex-grow text-center sm:text-left">
+                        <h3 id="modalTitle" class="font-orbitron font-bold text-xl text-white mb-2">Product Name</h3>
+                        <div class="flex items-center justify-center sm:justify-start gap-2 mb-3">
+                            <div class="text-amber-400 text-xs flex gap-1" id="modalRatingStars"></div>
+                            <span id="modalRatingText" class="text-xs text-slate-400 font-mono">(4.9 / 5.0)</span>
+                        </div>
+                        <p id="modalPrice" class="font-orbitron text-2xl font-black text-cyber-cyan mb-3">$0.00</p>
+                        <p id="modalDescription" class="text-xs text-slate-300 leading-relaxed">Description...</p>
+                    </div>
+                </div>
+
+                <!-- Especificaciones Técnicas Detalladas -->
+                <div>
+                    <h4 class="font-orbitron text-xs font-bold text-cyber-cyan uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                        <i class="fa-solid fa-list-check"></i> Especificaciones Técnicas Clave
+                    </h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs" id="modalSpecsTable">
+                        <!-- JS Dinámico -->
+                    </div>
+                </div>
+
+                <!-- Garantía & Envíos -->
+                <div class="grid grid-cols-2 gap-3 pt-2">
+                    <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800/80 flex items-center gap-2 text-xs text-slate-300">
+                        <i class="fa-solid fa-shield-halved text-cyber-neonGreen text-lg"></i>
+                        <div>
+                            <span class="block font-bold text-white">Garantía Nexus</span>
+                            <span>36 Meses Directa</span>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900/60 p-3 rounded-xl border border-slate-800/80 flex items-center gap-2 text-xs text-slate-300">
+                        <i class="fa-solid fa-truck-fast text-cyber-cyan text-lg"></i>
+                        <div>
+                            <span class="block font-bold text-white">Envío Express</span>
+                            <span>Asegurado 24-48h</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Modal -->
+            <div class="p-4 bg-slate-900/90 border-t border-slate-800 flex items-center justify-between gap-4">
+                <span class="text-xs text-slate-400 font-mono hidden sm:inline">Stock disponible inmediato</span>
+                <button id="modalAddToCartBtn" class="w-full sm:w-auto cyber-btn-primary text-black font-orbitron font-extrabold text-xs px-6 py-3 rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-cart-plus"></i> Añadir al Carrito
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DRAWER SIDEBAR DEL CARRITO -->
+    <div id="cartDrawer" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-cyber-bg border-l border-cyber-border z-50 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <div class="p-4 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
+            <h3 class="font-orbitron font-bold text-white text-base flex items-center gap-2">
+                <i class="fa-solid fa-cart-shopping text-cyber-cyan"></i> Tu Orden Nexus
+            </h3>
+            <button onclick="toggleCartDrawer()" class="text-slate-400 hover:text-white p-1 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Lista de productos en carrito -->
+        <div id="cartItemsContainer" class="flex-grow p-4 overflow-y-auto space-y-3">
+            <!-- Dinámico -->
+        </div>
+
+        <!-- Resumen de Costos y Checkout -->
+        <div class="p-4 bg-slate-900/90 border-t border-slate-800 space-y-3">
+            <div class="flex justify-between text-xs text-slate-400">
+                <span>Subtotal</span>
+                <span id="cartSubtotal" class="font-mono text-white">$0.00</span>
+            </div>
+            <div class="flex justify-between text-xs text-slate-400">
+                <span>Impuestos / IVA (13%)</span>
+                <span id="cartTax" class="font-mono text-white">$0.00</span>
+            </div>
+            <div class="flex justify-between text-sm font-bold text-white pt-2 border-t border-slate-800">
+                <span class="font-orbitron">TOTAL</span>
+                <span id="cartTotal" class="font-orbitron text-lg text-cyber-cyan text-glow-cyan">$0.00</span>
+            </div>
+
+            <button onclick="simulateCheckout()" class="w-full cyber-btn-primary text-black font-orbitron font-extrabold text-xs py-3 rounded-xl shadow-neon-cyan flex items-center justify-center gap-2 mt-2 uppercase tracking-wider">
+                <i class="fa-solid fa-credit-card"></i> Finalizar Compra
+            </button>
+        </div>
+    </div>
+
+    <!-- OVERLAY DEL CARRITO -->
+    <div id="cartOverlay" onclick="toggleCartDrawer()" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-40 hidden transition-opacity"></div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800 text-slate-500 py-8 text-xs mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div>
+                <p class="font-orbitron text-white text-sm font-bold mb-1">NEXUS HARDWARE SYSTEMS</p>
+                <p>Centro de Tecnología Gaming & Estaciones de Trabajo de Alto Rendimiento.</p>
+            </div>
+            <div class="flex items-center gap-6 text-slate-400">
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield text-cyber-cyan"></i> Garantía 3 Años</span>
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-truck-fast text-cyber-purple"></i> Envíos Express</span>
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-lock text-cyber-neonGreen"></i> Pago Seguro</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LÓGICA FRONT-END JAVASCRIPT -->
+    <script>
+        // DATOS REALISTAS DE COMPONENTES GAMING
+        const productsData = [
+            {
+                id: "gpu-4080",
+                name: "NVIDIA GeForce RTX 4080 Super",
+                category: "GPU",
+                brand: "NVIDIA",
+                price: 1049.99,
+                badge: "BEST SELLER",
+                badgeColor: "bg-cyber-purple/80 text-white",
+                wattage: 320,
+                rating: 4.9,
+                specs: {
+                    "VRAM": "16GB GDDR6X",
+                    "Bus": "256-bit",
+                    "Clock Boost": "2550 MHz",
+                    "Puertos": "3x DP 1.4a, 1x HDMI 2.1",
+                    "Fuente Sugerida": "750W+"
+                },
+                desc: "Rendimiento extremo con arquitectura Ada Lovelace, DLSS 3.5 Frame Generation y Ray Tracing de 3ra generación para juegos en 4K Ultra.",
+                svgType: "gpu"
+            },
+            {
+                id: "cpu-7800x3d",
+                name: "AMD Ryzen 7 7800X3D",
+                category: "CPU",
+                brand: "AMD",
+                price: 389.00,
+                badge: "GAMING KING",
+                badgeColor: "bg-cyber-cyan text-black font-bold",
+                wattage: 120,
+                rating: 5.0,
+                specs: {
+                    "Núcleos / Hilos": "8C / 16T",
+                    "Caché L3": "96MB (3D V-Cache)",
+                    "Base Clock": "4.2 GHz",
+                    "Boost Clock": "5.0 GHz",
+                    "Socket": "AM5"
+                },
+                desc: "El procesador definitivo para gaming puro gracias a su revolucionaria tecnología 3D V-Cache que maximiza los FPS en títulos competitivos.",
+                svgType: "cpu"
+            },
+            {
+                id: "cpu-14900k",
+                name: "Intel Core i9-14900K",
+                category: "CPU",
+                brand: "Intel",
+                price: 549.50,
+                badge: "EXTREME",
+                badgeColor: "bg-cyber-pink text-white",
+                wattage: 253,
+                rating: 4.8,
+                specs: {
+                    "Núcleos": "24 (8P + 16E)",
+                    "Hilos": "32",
+                    "Max Frecuencia": "6.0 GHz",
+                    "Socket": "LGA1700",
+                    "Gráficos": "Intel UHD 770"
+                },
+                desc: "Procesador insignia para creadores de contenido y gamers entusiastas que exigen velocidad máxima de reloj y multitarea masiva.",
+                svgType: "cpu"
+            },
+            {
+                id: "ram-ddr5-corsair",
+                name: "Corsair Vengeance RGB DDR5 32GB (2x16GB)",
+                category: "RAM",
+                brand: "Corsair",
+                price: 139.99,
+                badge: "RGB SYNC",
+                badgeColor: "bg-cyber-neonGreen/80 text-black font-bold",
+                wattage: 15,
+                rating: 4.9,
+                specs: {
+                    "Capacidad": "32GB (2x16GB)",
+                    "Frecuencia": "6000 MT/s",
+                    "Latencia": "CL30",
+                    "Perfil": "Intel XMP 3.0 / AMD EXPO",
+                    "Iluminación": "RGB Dinámico"
+                },
+                desc: "Módulos de memoria de alta velocidad con disipador de aluminio y barra de luz RGB direccionable por software iCUE.",
+                svgType: "ram"
+            },
+            {
+                id: "ssd-990-pro",
+                name: "Samsung 990 PRO NVMe M.2 2TB",
+                category: "SSD",
+                brand: "Samsung",
+                price: 169.99,
+                badge: "ULTRA FAST",
+                badgeColor: "bg-cyber-cyan text-black font-bold",
+                wattage: 10,
+                rating: 4.9,
+                specs: {
+                    "Capacidad": "2TB",
+                    "Lectura Secuencial": "7450 MB/s",
+                    "Escritura Secuencial": "6900 MB/s",
+                    "Interfaz": "PCIe 4.0 x4 M.2 2280",
+                    "DRAM Cache": "2GB LPDDR4"
+                },
+                desc: "Velocidades de transferencia abrumadoras para tiempos de carga inexistentes en juegos de mundo abierto y edición de video 8K.",
+                svgType: "ssd"
+            },
+            {
+                id: "gpu-7900xtx",
+                name: "AMD Radeon RX 7900 XTX 24GB",
+                category: "GPU",
+                brand: "AMD",
+                price: 929.00,
+                badge: "24GB VRAM",
+                badgeColor: "bg-red-600 text-white",
+                wattage: 355,
+                rating: 4.7,
+                specs: {
+                    "VRAM": "24GB GDDR6",
+                    "Bus": "384-bit",
+                    "Arquitectura": "RDNA 3",
+                    "Puertos": "DisplayPort 2.1, HDMI 2.1",
+                    "Fuente Sugerida": "800W+"
+                },
+                desc: "Monstruo de potencia gráfica con 24GB de VRAM ideal para resoluciones nativas extremas y renderizado profesional.",
+                svgType: "gpu"
+            },
+            {
+                id: "mb-rog-strix",
+                name: "ASUS ROG Strix Z790-E Gaming WiFi",
+                category: "Motherboard",
+                brand: "ROG",
+                price: 439.99,
+                badge: "PREMIUM",
+                badgeColor: "bg-cyber-purple/90 text-white",
+                wattage: 50,
+                rating: 4.8,
+                specs: {
+                    "Socket": "LGA1700",
+                    "Chipset": "Intel Z790",
+                    "Soporte RAM": "DDR5 hasta 7800+ MHz",
+                    "Red": "WiFi 6E + 2.5Gb Ethernet",
+                    "Ranuras PCIe": "PCIe 5.0 x16"
+                },
+                desc: "Placa base de alto rango con robusto VRM de 18+1 fases, disipación avanzada y compatibilidad total con Overclocking.",
+                svgType: "mb"
+            },
+            {
+                id: "psu-rm1000x",
+                name: "Corsair RM1000x 1000W 80+ Gold Modular",
+                category: "PSU",
+                brand: "Corsair",
+                price: 189.99,
+                badge: "ATX 3.0",
+                badgeColor: "bg-amber-500 text-black font-bold",
+                wattage: 0,
+                rating: 5.0,
+                specs: {
+                    "Potencia": "1000 Watts",
+                    "Certificación": "80 PLUS Gold",
+                    "Cableado": "100% Modular (PCIe 5.0 12VHPWR)",
+                    "Ventilador": "135mm Levitation Magnética",
+                    "Garantía": "10 Años"
+                },
+                desc: "Fuente de poder totalmente modular lista para tarjetas gráficas de nueva generación con conector nativo de 16 pines.",
+                svgType: "psu"
+            },
+            {
+                id: "cool-kraken-elite",
+                name: "NZXT Kraken Elite 360 RGB LCD",
+                category: "Enfriamiento",
+                brand: "NZXT",
+                price: 279.99,
+                badge: "LCD DISPLAY",
+                badgeColor: "bg-cyber-cyan text-black font-bold",
+                wattage: 25,
+                rating: 4.9,
+                specs: {
+                    "Tamaño Radiador": "360mm (3x 120mm Fans)",
+                    "Pantalla": "2.36\" TFT-LCD Personalizable",
+                    "Compatibilidad": "AM5 / AM4 / LGA1700",
+                    "Bomba": "Asetek 7ma Gen",
+                    "Software": "NZXT CAM"
+                },
+                desc: "Refrigeración líquida AIO de máxima gama con pantalla LCD brillante para monitorear temperaturas o mostrar GIFs personalizados.",
+                svgType: "cool"
+            }
+        ];
+
+        // ESTADO GLOBAL DE LA APLICACIÓN
+        let selectedCategory = 'all';
+        let selectedBrand = 'all';
+        let cart = [];
+        let isStoreOnline = true;
+
+        // INICIALIZACIÓN AL CARGAR
+        window.addEventListener('DOMContentLoaded', () => {
+            renderCategories();
+            renderBrandFilters();
+            renderCatalog();
+            initBuilderSelectors();
+        });
+
+        // SVG PLACEHOLDERS ESTILIZADOS CYBERPUNK
+        function getSvgIcon(type) {
+            switch(type) {
+                case 'gpu':
+                    return `<svg class="w-20 h-20 text-cyber-purple drop-shadow-[0_0_10px_rgba(112,0,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"></path></svg>`;
+                case 'cpu':
+                    return `<svg class="w-20 h-20 text-cyber-cyan drop-shadow-[0_0_10px_rgba(0,240,255,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2m-2 6h2m14-6h2m-2 6h2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>`;
+                case 'ram':
+                    return `<svg class="w-20 h-20 text-cyber-neonGreen drop-shadow-[0_0_10px_rgba(0,255,102,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>`;
+                case 'ssd':
+                    return `<svg class="w-20 h-20 text-cyber-pink drop-shadow-[0_0_10px_rgba(255,0,127,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 8h14M5 8a2 2 0 01-2-2V5a2 2 0 012-2h14a2 2 0 012 2v1a2 2 0 01-2 2M5 8v10a2 2 0 002 2h14a2 2 0 002-2V8m-9 4h4"></path></svg>`;
+                default:
+                    return `<svg class="w-20 h-20 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>`;
+            }
+        }
+
+        // RENDER DE CATEGORÍAS
+        const categories = [
+            { id: 'all', label: 'Todos', icon: 'fa-border-all' },
+            { id: 'CPU', label: 'Procesadores', icon: 'fa-microchip' },
+            { id: 'GPU', label: 'Tarjetas de Vídeo', icon: 'fa-tv' },
+            { id: 'RAM', label: 'Memorias RAM', icon: 'fa-memory' },
+            { id: 'SSD', label: 'Almacenamiento NVMe', icon: 'fa-hard-drive' },
+            { id: 'Motherboard', label: 'Placas Madre', icon: 'fa-server' },
+            { id: 'Enfriamiento', label: 'Enfriamiento', icon: 'fa-fan' },
+            { id: 'PSU', label: 'Fuentes de Poder', icon: 'fa-plug' }
+        ];
+
+        function renderCategories() {
+            const container = document.getElementById('categoryContainer');
+            container.innerHTML = categories.map(cat => `
+                <button 
+                    onclick="selectCategory('${cat.id}')"
+                    class="cat-btn px-4 py-2 rounded-xl text-xs font-orbitron font-bold whitespace-nowrap transition-all border ${selectedCategory === cat.id ? 'bg-gradient-to-r from-cyber-purple to-cyber-cyan text-black border-transparent shadow-neon-cyan' : 'bg-slate-900/80 text-slate-300 border-slate-800 hover:border-cyber-cyan/40'}"
+                >
+                    <i class="fa-solid ${cat.icon} mr-1.5"></i> ${cat.label}
+                </button>
+            `).join('');
+        }
+
+        function selectCategory(catId) {
+            selectedCategory = catId;
+            renderCategories();
+            renderCatalog();
+        }
+
+        // MARCAS
+        const brands = ['all', 'NVIDIA', 'AMD', 'Intel', 'Corsair', 'Samsung', 'ROG', 'NZXT'];
+
+        function renderBrandFilters() {
+            const container = document.getElementById('brandFilterContainer');
+            container.innerHTML = brands.map(b => `
+                <button 
+                    onclick="selectBrand('${b}')"
+                    class="px-3 py-1 rounded-lg text-[11px] font-mono transition-all border ${selectedBrand === b ? 'bg-cyber-cyan/20 border-cyber-cyan text-cyber-cyan font-bold' : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-white'}"
+                >
+                    ${b === 'all' ? 'Todas' : b}
+                </button>
+            `).join('');
+        }
+
+        function selectBrand(brand) {
+            selectedBrand = brand;
+            renderBrandFilters();
+            renderCatalog();
+        }
+
+        // RENDER DEL CATÁLOGO CON FILTROS
+        function renderCatalog() {
+            const grid = document.getElementById('productsGrid');
+            const noResults = document.getElementById('noResults');
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+
+            const filtered = productsData.filter(item => {
+                const matchCat = selectedCategory === 'all' || item.category === selectedCategory;
+                const matchBrand = selectedBrand === 'all' || item.brand.toLowerCase() === selectedBrand.toLowerCase();
+                const matchSearch = item.name.toLowerCase().includes(searchVal) || 
+                                      item.desc.toLowerCase().includes(searchVal) ||
+                                      item.brand.toLowerCase().includes(searchVal);
+                return matchCat && matchBrand && matchSearch;
+            });
+
+            document.getElementById('resultsCount').textContent = `${filtered.length} componentes encontrados`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+
+            noResults.classList.add('hidden');
+            grid.innerHTML = filtered.map(product => {
+                // Specs rápidas para la card
+                const specKeys = Object.keys(product.specs).slice(0, 2);
+                const quickSpecs = specKeys.map(k => `<span class="bg-slate-950/80 px-2 py-1 rounded border border-slate-800">${k}: <strong class="text-slate-200">${product.specs[k]}</strong></span>`).join('');
+
+                return `
+                    <div class="cyber-glass rounded-2xl p-5 border border-slate-800/80 cyber-glass-hover transition-all duration-300 flex flex-col justify-between group relative overflow-hidden">
+                        
+                        <!-- Badge de stock / estado -->
+                        <div class="flex items-center justify-between mb-3 z-10">
+                            <span class="${product.badgeColor} text-[10px] font-orbitron font-bold px-2.5 py-0.5 rounded-md shadow-sm">
+                                ${product.badge}
+                            </span>
+                            <span class="text-[11px] font-mono text-slate-400">
+                                <i class="fa-solid fa-bolt text-cyber-amber mr-1"></i>${product.wattage > 0 ? product.wattage + 'W' : 'N/A'}
+                            </span>
+                        </div>
+
+                        <!-- SVG / Imagen del producto -->
+                        <div onclick="openProductModal('${product.id}')" class="h-40 my-2 flex items-center justify-center bg-slate-950/50 rounded-xl border border-slate-900 group-hover:border-cyber-cyan/30 transition-colors cursor-pointer relative overflow-hidden">
+                            ${getSvgIcon(product.svgType)}
+                            <div class="absolute inset-0 bg-cyber-cyan/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <span class="bg-slate-950/90 text-cyber-cyan text-xs font-orbitron px-3 py-1.5 rounded-xl border border-cyber-cyan/40 shadow-neon-cyan">
+                                    <i class="fa-solid fa-expand mr-1"></i> Ver Specs
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Info -->
+                        <div>
+                            <span class="text-[10px] font-orbitron uppercase text-cyber-cyan font-bold tracking-wider">${product.brand}</span>
+                            <h4 onclick="openProductModal('${product.id}')" class="font-orbitron font-bold text-white text-sm hover:text-cyber-cyan transition-colors cursor-pointer line-clamp-1 mb-2">
+                                ${product.name}
+                            </h4>
+
+                            <!-- Quick Specs Grid -->
+                            <div class="flex flex-wrap gap-1 text-[10px] text-slate-400 font-mono mb-4">
+                                ${quickSpecs}
+                            </div>
+                        </div>
+
+                        <!-- Precio y Acción -->
+                        <div class="pt-3 border-t border-slate-800/80 flex items-center justify-between mt-auto">
+                            <div>
+                                <span class="text-[10px] text-slate-500 block">PRECIO ONLINE</span>
+                                <span class="font-orbitron font-extrabold text-lg text-white text-glow-cyan">$${product.price.toFixed(2)}</span>
+                            </div>
+                            <button 
+                                onclick="addToCart('${product.id}')"
+                                class="cyber-btn-primary text-black font-orbitron text-xs font-bold px-3.5 py-2 rounded-xl flex items-center gap-1.5"
+                                title="Añadir al carrito"
+                            >
+                                <i class="fa-solid fa-plus"></i> Añadir
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterCatalog() {
+            renderCatalog();
+        }
+
+        function resetFilters() {
+            selectedCategory = 'all';
+            selectedBrand = 'all';
+            document.getElementById('searchInput').value = '';
+            renderCategories();
+            renderBrandFilters();
+            renderCatalog();
+        }
+
+        // MODAL DETALLES DE PRODUCTO
+        function openProductModal(id) {
+            const product = productsData.find(p => p.id === id);
+            if(!product) return;
+
+            document.getElementById('modalBrandBadge').textContent = product.brand;
+            document.getElementById('modalCategoryBadge').textContent = product.category;
+            document.getElementById('modalTitle').textContent = product.name;
+            document.getElementById('modalPrice').textContent = `$${product.price.toFixed(2)}`;
+            document.getElementById('modalDescription').textContent = product.desc;
+            document.getElementById('modalSvgContainer').innerHTML = getSvgIcon(product.svgType);
+
+            // Estrellas
+            const starsContainer = document.getElementById('modalRatingStars');
+            starsContainer.innerHTML = '';
+            for(let i=0; i<5; i++) {
+                starsContainer.innerHTML += `<i class="fa-solid fa-star"></i>`;
+            }
+
+            // Specs Table
+            const specsTable = document.getElementById('modalSpecsTable');
+            specsTable.innerHTML = Object.entries(product.specs).map(([key, val]) => `
+                <div class="bg-slate-900/80 p-2.5 rounded-xl border border-slate-800 flex justify-between">
+                    <span class="text-slate-400 font-mono">${key}:</span>
+                    <span class="text-white font-bold font-mono">${val}</span>
+                </div>
+            `).join('');
+
+            // Config Botón
+            const modalBtn = document.getElementById('modalAddToCartBtn');
+            modalBtn.onclick = () => {
+                addToCart(product.id);
+                closeProductModal();
+            };
+
+            const modal = document.getElementById('productModal');
+            const container = document.getElementById('modalContainer');
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            container.classList.remove('scale-95');
+            container.classList.add('scale-100');
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('productModal');
+            const container = document.getElementById('modalContainer');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            container.classList.remove('scale-100');
+            container.classList.add('scale-95');
+        }
+
+        // LÓGICA DE SIMULADOR "PC BUILDER EXPRESS"
+        function initBuilderSelectors() {
+            const cpuSelect = document.getElementById('builderCpu');
+            const gpuSelect = document.getElementById('builderGpu');
+            const ramSelect = document.getElementById('builderRam');
+
+            const cpus = productsData.filter(p => p.category === 'CPU');
+            const gpus = productsData.filter(p => p.category === 'GPU');
+            const rams = productsData.filter(p => p.category === 'RAM');
+
+            cpus.forEach(c => cpuSelect.innerHTML += `<option value="${c.id}">${c.name} (+$${c.price})</option>`);
+            gpus.forEach(g => gpuSelect.innerHTML += `<option value="${g.id}">${g.name} (+$${g.price})</option>`);
+            rams.forEach(r => ramSelect.innerHTML += `<option value="${r.id}">${r.name} (+$${r.price})</option>`);
+        }
+
+        function calculateBuilder() {
+            const cpuId = document.getElementById('builderCpu').value;
+            const gpuId = document.getElementById('builderGpu').value;
+            const ramId = document.getElementById('builderRam').value;
+
+            const cpu = productsData.find(p => p.id === cpuId);
+            const gpu = productsData.find(p => p.id === gpuId);
+            const ram = productsData.find(p => p.id === ramId);
+
+            let totalWatts = 50; // Consumo base sistema
+            let totalPrice = 0;
+
+            if(cpu) { totalWatts += cpu.wattage; totalPrice += cpu.price; }
+            if(gpu) { totalWatts += gpu.wattage; totalPrice += gpu.price; }
+            if(ram) { totalWatts += ram.wattage; totalPrice += ram.price; }
+
+            document.getElementById('builderWattage').textContent = `${totalWatts} Watts`;
+            document.getElementById('builderTotalPrice').textContent = `$${totalPrice.toFixed(2)}`;
+
+            // Fuente recomendada
+            const psuElem = document.getElementById('recommendedPsu');
+            if(totalWatts <= 50) {
+                psuElem.textContent = '--';
+            } else if(totalWatts < 450) {
+                psuElem.textContent = '650W 80+ Bronze o Superior';
+            } else if(totalWatts < 600) {
+                psuElem.textContent = '750W 80+ Gold';
+            } else {
+                psuElem.textContent = '850W - 1000W ATX 3.0 Gold';
+            }
+        }
+
+        function addBuilderToCart() {
+            const cpuId = document.getElementById('builderCpu').value;
+            const gpuId = document.getElementById('builderGpu').value;
+            const ramId = document.getElementById('builderRam').value;
+
+            if(!cpuId && !gpuId && !ramId) {
+                showToast("Selecciona al menos un componente en el PC Builder.", "amber");
+                return;
+            }
+
+            if(cpuId) addToCart(cpuId);
+            if(gpuId) addToCart(gpuId);
+            if(ramId) addToCart(ramId);
+
+            showToast("Combo del PC Builder agregado al carrito.", "cyan");
+        }
+
+        // LÓGICA DE CARRITO Y CHECKOUT
+        function addToCart(productId) {
+            const product = productsData.find(p => p.id === productId);
+            if(!product) return;
+
+            const existing = cart.find(item => item.id === productId);
+            if(existing) {
+                existing.quantity++;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+            showToast(`¡${product.name} agregado!`, "cyan");
+        }
+
+        function changeCartQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if(item) {
+                item.quantity += delta;
+                if(item.quantity <= 0) {
+                    cart = cart.filter(i => i.id !== id);
+                }
+                updateCartUI();
+            }
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(i => i.id !== id);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cartItemsContainer');
+            const badgeCount = document.getElementById('cartCountBadge');
+            
+            let totalQty = 0;
+            let subtotal = 0;
+
+            container.innerHTML = '';
+
+            if(cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-16 text-slate-500">
+                        <i class="fa-solid fa-cart-arrow-down text-4xl mb-3 text-slate-700"></i>
+                        <p class="font-orbitron text-xs font-bold text-slate-400">Carrito Vacío</p>
+                        <p class="text-[11px] mt-1">Explora nuestro catálogo y equipa tu setup.</p>
+                    </div>
+                `;
+            } else {
+                cart.forEach(item => {
+                    totalQty += item.quantity;
+                    subtotal += item.price * item.quantity;
+
+                    container.innerHTML += `
+                        <div class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 flex items-center justify-between gap-3">
+                            <div class="flex-grow">
+                                <h5 class="font-orbitron text-xs font-bold text-white line-clamp-1">${item.name}</h5>
+                                <span class="font-mono text-xs text-cyber-cyan font-bold">$${item.price.toFixed(2)}</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="flex items-center bg-slate-950 border border-slate-800 rounded-lg">
+                                    <button onclick="changeCartQty('${item.id}', -1)" class="px-2 py-0.5 text-xs text-slate-400 hover:text-white">-</button>
+                                    <span class="px-2 text-xs font-mono font-bold text-white">${item.quantity}</span>
+                                    <button onclick="changeCartQty('${item.id}', 1)" class="px-2 py-0.5 text-xs text-slate-400 hover:text-white">+</button>
+                                </div>
+                                <button onclick="removeFromCart('${item.id}')" class="text-slate-500 hover:text-cyber-pink text-xs p-1">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            const tax = subtotal * 0.13;
+            const total = subtotal + tax;
+
+            badgeCount.textContent = totalQty;
+            document.getElementById('cartSubtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('cartTax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('cartTotal').textContent = `$${total.toFixed(2)}`;
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cartDrawer');
+            const overlay = document.getElementById('cartOverlay');
+            const isOpen = !drawer.classList.contains('translate-x-full');
+
+            if(isOpen) {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+            } else {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+            }
+        }
+
+        function simulateCheckout() {
+            if(cart.length === 0) {
+                showToast("Tu carrito está vacío.", "amber");
+                return;
+            }
+
+            showToast("¡Orden procesada exitosamente! Gracias por tu compra.", "neonGreen");
+            cart = [];
+            updateCartUI();
+            toggleCartDrawer();
+        }
+
+        // ESTADO TIENDA INTERACTIVO
+        function toggleStoreStatus() {
+            isStoreOnline = !isStoreOnline;
+            const statusDot = document.getElementById('statusDot');
+            const statusText = document.getElementById('statusText');
+            const statusBtn = document.getElementById('statusBtn');
+
+            if(isStoreOnline) {
+                statusBtn.className = "cursor-pointer flex items-center gap-2 px-3 py-1 rounded-full bg-cyber-neonGreen/10 border border-cyber-neonGreen/30 text-cyber-neonGreen text-xs font-semibold hover:bg-cyber-neonGreen/20 transition-all select-none";
+                statusDot.className = "w-2 h-2 rounded-full bg-cyber-neonGreen animate-ping";
+                statusText.textContent = "EN LÍNEA / ATENCIÓN FÍSICA";
+                showToast("Modo Tienda: EN LÍNEA & ATENCIÓN FÍSICA", "neonGreen");
+            } else {
+                statusBtn.className = "cursor-pointer flex items-center gap-2 px-3 py-1 rounded-full bg-cyber-pink/10 border border-cyber-pink/30 text-cyber-pink text-xs font-semibold hover:bg-cyber-pink/20 transition-all select-none";
+                statusDot.className = "w-2 h-2 rounded-full bg-cyber-pink";
+                statusText.textContent = "SOLO PEDIDOS ONLINE";
+                showToast("Modo Tienda: SOLO PEDIDOS WEB", "pink");
+            }
+        }
+
+        // TOAST NOTIFICATION SYSTEM
+        function showToast(msg, theme = "cyan") {
+            const toast = document.createElement('div');
+            let borderColor = "border-cyber-cyan";
+            let textColor = "text-cyber-cyan";
+
+            if(theme === "pink") { borderColor = "border-cyber-pink"; textColor = "text-cyber-pink"; }
+            if(theme === "amber") { borderColor = "border-cyber-amber"; textColor = "text-cyber-amber"; }
+            if(theme === "neonGreen") { borderColor = "border-cyber-neonGreen"; textColor = "text-cyber-neonGreen"; }
+
+            toast.className = `fixed bottom-5 right-5 z-50 bg-slate-900 ${borderColor} border px-4 py-3 rounded-2xl shadow-2xl text-xs font-orbitron flex items-center gap-2 transition-all duration-300 transform translate-y-10 opacity-0`;
+            toast.innerHTML = `<i class="fa-solid fa-circle-check ${textColor}"></i> <span class="text-white">${msg}</span>`;
+
+            document.body.appendChild(toast);
+
+            setTimeout(() => toast.classList.remove('translate-y-10', 'opacity-0'), 10);
+            setTimeout(() => {
+                toast.classList.add('translate-y-10', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
